@@ -11,7 +11,7 @@ const cors = require('cors')
 const knex = require('knex');
 
 
-let PORT = process.env.PORT; 
+const PORT = process.env.PORT; 
 
 const db = knex({
 	client: 'pg',
