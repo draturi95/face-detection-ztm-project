@@ -1,0 +1,103 @@
+// db('users')
+	// 	.returning('*') //knex has in build returning function which can be  used to return and we can use res.json in the promise itself with .then().Note that returning returns an array so if you expect a single return, use [0]
+	// 	.insert({
+	// 		email: email,
+	// 		name: name,
+	// 		joined: new Date() //note entries in database were default 0
+	// 	}).then(user => res.json(user[0]))
+	// 	.catch(() => res.status(400).json('error in registering the user'))
+
+
+
+
+
+	// db('users').insert({
+	// 	email: email,
+	// 	name: name,
+	// 	joined: new Date() //note entries in database were default 0
+	// }).then(data => console.log(data)).catch(() => console.log('error on database login table - insert'))
+
+
+	// database.users.push({ ...newUser, id: idNew, joined: new Date(), entries: 0 });
+	// database.login.push({ id: idNew, email: newUser.email, hash: hash })
+	// res.json(database.users[database.users.length - 1]);
+
+
+// /signin : POST = success/fail
+// /register POST = user
+// /profile/:userId GET = user
+// /image PUT = update counter. 
+
+
+//note that we are adding data to both tables login and users in here 
+	// and if for some reason, addition to one table fails, we want it to 
+	// fail for both tables and we will call addition a success only if the
+	//data gets added to both of the tables. 
+
+	//for this we have something called a transaction in knex package which we will use here. 
+
+
+
+    // console.log(req.body);
+
+	// bcrypt.compare(req.body.password, database.login[0].hash, function (err, resPass) {
+	// 	// console.log(resCom); 
+	// 	if (req.body.email == database.login[0].email
+	// 		&& resPass) {
+	// 		res.json(database.users[0]);
+	// 		console.log('Successfully signed in')
+	// 	}
+	// 	else res.status(400).json('Denied Access');
+
+	// 	//note that we cant ask if req.body.password's hash is equal to login[0].hash as hash can be different for same password
+	// 	// in bcrypt. Hence, we have a compare function to take care of matching passwords for us.
+	// })
+
+
+
+    
+// const database = {
+// 	users: [
+// 		{
+// 			id: 123, //password was cookies 
+// 			name: 'John',
+// 			email: 'john@gmail.com',
+// 			entries: 0,
+// 			joined: new Date()
+// 		},
+
+// 		{
+// 			id: 124, //password was platinum 
+// 			name: 'East',
+// 			email: 'east@gmail.com',
+// 			entries: 12,
+// 			joined: new Date()
+// 		},
+
+// 	],
+// 	login: [
+// 		{
+// 			id: 123,
+// 			hash: '$2a$10$mNGAK9TJH8B5skmnG/xwEOUCj9.WahnNgSlBsyb40kYjpsXJmB1pi',
+// 			email: 'john@gmail.com'
+// 		},
+// 		{
+// 			id: 124,
+// 			hash: '$2a$10$wVgRNR2SgJYZVOguTPNoK.m.lEXcC7cjD3nt597SC.lXE5K2WctRm',
+// 			email: 'east@gmail.com'
+// 		},
+
+// 	],
+// }
+
+// app.get('/', (req, res) => {
+// 	// res.send('This is working'); 
+// 	res.send(database.users);
+// })
+
+
+
+
+// db.select('*').from('users').then(data => {
+// 	console.log(data)
+// }).catch(() => console.log('errororrr'))

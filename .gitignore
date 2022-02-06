@@ -23,7 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 
-#ignore files and folders
+#ignore my files and folders
 
 /face-recognition-client/node_modules
-/face-recognition-server
+/face-recognition-server/node_modules
+/face-recognition-server/.env
